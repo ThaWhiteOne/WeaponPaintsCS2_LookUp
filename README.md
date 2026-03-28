@@ -1,6 +1,6 @@
 # WeaponPaints CS2 Lookup
 
-A fast, browser-based lookup tool for CS2 weapon skin codes — built for server owners and plugin developers who use [WeaponPaints]([[https://github.com/Nereziel/cs2-WeaponPaints]] and similar plugins.
+A fast, browser-based lookup tool for CS2 weapon skin codes — built for server owners and plugin developers who use [WeaponPaints](https://github.com/Nereziel/cs2-WeaponPaints) and similar plugins.
 
 **[Live Demo →](https://YOUR-USERNAME.github.io/weaponpaints)**
 
