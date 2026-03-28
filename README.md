@@ -2,7 +2,7 @@
 
 A fast, browser-based lookup tool for CS2 weapon skin codes — built for server owners and plugin developers who use [WeaponPaints](https://github.com/Skapt/CS2-WeaponPaints) and similar plugins.
 
-**[Live Demo →](https://YOUR-USERNAME.github.io/weaponpaints)**
+**[Live Demo →](https://thawhiteone.github.io/WeaponPaintsCS2_LookUp/)**
 
 ![WeaponPaints Lookup Screenshot](https://i.imgur.com/placeholder.png)
 
@@ -48,7 +48,7 @@ Just visit the live site — no setup needed.
 Clone the repo and open `index.html` in your browser:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/weaponpaints.git
+git clone https://thawhiteone.github.io/WeaponPaintsCS2_LookUp
 cd weaponpaints
 ```
 
@@ -93,7 +93,7 @@ All item data is provided by **[ByMykel/CSGO-API](https://github.com/ByMykel/CSG
 1. Fork or push this repo to GitHub
 2. Go to **Settings → Pages**
 3. Set source to **`main` branch**, folder **`/ (root)`**
-4. Your site will be live at `https://YOUR-USERNAME.github.io/REPO-NAME`
+4. Your site will be live at `https://thawhiteone.github.io/WeaponPaintsCS2_LookUp`
 
 ---
 
