@@ -46,7 +46,7 @@ Just visit the live site — no setup needed.
 Clone the repo and open `index.html` in your browser:
 
 ```bash
-git clone https://thawhiteone.github.io/WeaponPaintsCS2_LookUp
+git clone https://github.com/ThaWhiteOne/WeaponPaintsCS2_LookUp.git
 cd weaponpaints
 ```
 
@@ -83,15 +83,6 @@ After finding your skin, expand the card and copy the JSON entry directly into y
 ## Data source
 
 All item data is provided by **[ByMykel/CSGO-API](https://github.com/ByMykel/CSGO-API)** — a community-maintained, always-updated CS2 item database. This project uses it as a read-only data source with no modifications.
-
----
-
-## Deploy to GitHub Pages
-
-1. Fork or push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Set source to **`main` branch**, folder **`/ (root)`**
-4. Your site will be live at `https://thawhiteone.github.io/WeaponPaintsCS2_LookUp`
 
 ---
 
