@@ -4,8 +4,6 @@ A fast, browser-based lookup tool for CS2 weapon skin codes — built for server
 
 **[Live Demo →](https://thawhiteone.github.io/WeaponPaintsCS2_LookUp/)**
 
-![WeaponPaints Lookup Screenshot](https://i.imgur.com/placeholder.png)
-
 ---
 
 ## What it does
