@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeaponPaints — CS2 Lookup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">WEAPON<span class="logo-accent">PAINTS</span><span class="logo-badge">CS2</span></div>
+
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="skins"     onclick="switchTab('skins')">    SKINS     <span class="tab-count" id="cnt-skins">—</span></button>
+    <button class="tab-btn"        data-tab="agents"    onclick="switchTab('agents')">   AGENTS    <span class="tab-count" id="cnt-agents">—</span></button>
+    <button class="tab-btn"        data-tab="keychains" onclick="switchTab('keychains')">KEYCHAINS <span class="tab-count" id="cnt-keychains">—</span></button>
+    <button class="tab-btn"        data-tab="stickers"  onclick="switchTab('stickers')"> STICKERS  <span class="tab-count" id="cnt-stickers">—</span></button>
+    <button class="tab-btn"        data-tab="music"     onclick="switchTab('music')">    MUSIC     <span class="tab-count" id="cnt-music">—</span></button>
+  </nav>
+
+  <div id="api-status">
+    <span class="dot" id="dot"></span>
+    <span id="api-label">ready</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════════════ SKINS ══════════════════ -->
+  <div class="panel active" id="panel-skins">
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="q-skins" placeholder="Search skin name — e.g. Asiimov, Hyper Beast, Dragon Lore…" />
+        </div>
+        <button class="search-btn" onclick="execSearch('skins')">SEARCH</button>
+        <button class="browse-btn" onclick="browseAll('skins')">BROWSE ALL</button>
+      </div>
+      <div class="filter-scroll" id="weapon-filters">
+        <button class="filter-pill active" data-wid=""                    onclick="setWeaponFilter(this,'')">all</button>
+        <button class="filter-pill" data-cat="sfui_invpanel_filter_melee"  onclick="setCatFilter(this,'sfui_invpanel_filter_melee')">knives</button>
+        <button class="filter-pill" data-cat="sfui_invpanel_filter_gloves" onclick="setCatFilter(this,'sfui_invpanel_filter_gloves')">gloves</button>
+        <button class="filter-pill" data-wid="weapon_ak47"                onclick="setWeaponFilter(this,'weapon_ak47')">ak-47</button>
+        <button class="filter-pill" data-wid="weapon_awp"                 onclick="setWeaponFilter(this,'weapon_awp')">awp</button>
+        <button class="filter-pill" data-wid="weapon_m4a1"                onclick="setWeaponFilter(this,'weapon_m4a1')">m4a4</button>
+        <button class="filter-pill" data-wid="weapon_m4a1_silencer"       onclick="setWeaponFilter(this,'weapon_m4a1_silencer')">m4a1-s</button>
+        <button class="filter-pill" data-wid="weapon_deagle"              onclick="setWeaponFilter(this,'weapon_deagle')">deagle</button>
+        <button class="filter-pill" data-wid="weapon_glock"               onclick="setWeaponFilter(this,'weapon_glock')">glock</button>
+        <button class="filter-pill" data-wid="weapon_usp_silencer"        onclick="setWeaponFilter(this,'weapon_usp_silencer')">usp-s</button>
+        <button class="filter-pill" data-wid="weapon_p250"                onclick="setWeaponFilter(this,'weapon_p250')">p250</button>
+        <button class="filter-pill" data-wid="weapon_fiveseven"           onclick="setWeaponFilter(this,'weapon_fiveseven')">five-seven</button>
+        <button class="filter-pill" data-wid="weapon_sg556"               onclick="setWeaponFilter(this,'weapon_sg556')">sg 553</button>
+        <button class="filter-pill" data-wid="weapon_aug"                 onclick="setWeaponFilter(this,'weapon_aug')">aug</button>
+        <button class="filter-pill" data-wid="weapon_famas"               onclick="setWeaponFilter(this,'weapon_famas')">famas</button>
+        <button class="filter-pill" data-wid="weapon_galilar"             onclick="setWeaponFilter(this,'weapon_galilar')">galil ar</button>
+        <button class="filter-pill" data-wid="weapon_ssg08"               onclick="setWeaponFilter(this,'weapon_ssg08')">ssg 08</button>
+        <button class="filter-pill" data-wid="weapon_mp9"                 onclick="setWeaponFilter(this,'weapon_mp9')">mp9</button>
+        <button class="filter-pill" data-wid="weapon_mac10"               onclick="setWeaponFilter(this,'weapon_mac10')">mac-10</button>
+        <button class="filter-pill" data-wid="weapon_mp5sd"               onclick="setWeaponFilter(this,'weapon_mp5sd')">mp5-sd</button>
+        <button class="filter-pill" data-wid="weapon_mp7"                 onclick="setWeaponFilter(this,'weapon_mp7')">mp7</button>
+        <button class="filter-pill" data-wid="weapon_ump45"               onclick="setWeaponFilter(this,'weapon_ump45')">ump-45</button>
+        <button class="filter-pill" data-wid="weapon_p90"                 onclick="setWeaponFilter(this,'weapon_p90')">p90</button>
+        <button class="filter-pill" data-wid="weapon_bizon"               onclick="setWeaponFilter(this,'weapon_bizon')">pp-bizon</button>
+        <button class="filter-pill" data-wid="weapon_nova"                onclick="setWeaponFilter(this,'weapon_nova')">nova</button>
+        <button class="filter-pill" data-wid="weapon_sawedoff"            onclick="setWeaponFilter(this,'weapon_sawedoff')">sawed-off</button>
+        <button class="filter-pill" data-wid="weapon_mag7"                onclick="setWeaponFilter(this,'weapon_mag7')">mag-7</button>
+        <button class="filter-pill" data-wid="weapon_xm1014"              onclick="setWeaponFilter(this,'weapon_xm1014')">xm1014</button>
+        <button class="filter-pill" data-wid="weapon_m249"                onclick="setWeaponFilter(this,'weapon_m249')">m249</button>
+        <button class="filter-pill" data-wid="weapon_negev"               onclick="setWeaponFilter(this,'weapon_negev')">negev</button>
+        <button class="filter-pill" data-wid="weapon_tec9"                onclick="setWeaponFilter(this,'weapon_tec9')">tec-9</button>
+        <button class="filter-pill" data-wid="weapon_cz75a"               onclick="setWeaponFilter(this,'weapon_cz75a')">cz75-a</button>
+        <button class="filter-pill" data-wid="weapon_revolver"            onclick="setWeaponFilter(this,'weapon_revolver')">r8</button>
+        <button class="filter-pill" data-wid="weapon_elite"               onclick="setWeaponFilter(this,'weapon_elite')">duals</button>
+        <button class="filter-pill" data-wid="weapon_p2000"               onclick="setWeaponFilter(this,'weapon_p2000')">p2000</button>
+      </div>
+    </div>
+    <div id="status-skins" class="statusbar"></div>
+    <div id="results-skins" class="results">
+      <div class="state-msg"><span class="big">⌕</span>Search by skin name or click Browse All to load everything</div>
+    </div>
+    <div class="load-more-wrap" id="lm-skins" style="display:none">
+      <button class="load-more-btn" onclick="loadMore('skins')">LOAD MORE</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ AGENTS ══════════════════ -->
+  <div class="panel" id="panel-agents">
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="q-agents" placeholder="Search agent name or team…" />
+        </div>
+        <button class="search-btn" onclick="execSearch('agents')">SEARCH</button>
+        <button class="browse-btn" onclick="browseAll('agents')">BROWSE ALL</button>
+      </div>
+      <div class="filter-scroll">
+        <button class="filter-pill active" data-team=""           onclick="setTeamFilter(this,'')">all teams</button>
+        <button class="filter-pill"        data-team="ct"         onclick="setTeamFilter(this,'ct')">CT</button>
+        <button class="filter-pill"        data-team="terrorists" onclick="setTeamFilter(this,'terrorists')">T</button>
+      </div>
+    </div>
+    <div id="status-agents" class="statusbar"></div>
+    <div id="results-agents" class="results">
+      <div class="state-msg"><span class="big">⌕</span>Search an agent or click Browse All</div>
+    </div>
+    <div class="load-more-wrap" id="lm-agents" style="display:none">
+      <button class="load-more-btn" onclick="loadMore('agents')">LOAD MORE</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ KEYCHAINS ══════════════════ -->
+  <div class="panel" id="panel-keychains">
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="q-keychains" placeholder="Search keychain / charm name…" />
+        </div>
+        <button class="search-btn" onclick="execSearch('keychains')">SEARCH</button>
+        <button class="browse-btn" onclick="browseAll('keychains')">BROWSE ALL</button>
+      </div>
+    </div>
+    <div id="status-keychains" class="statusbar"></div>
+    <div id="results-keychains" class="results">
+      <div class="state-msg"><span class="big">⌕</span>Search a keychain or click Browse All</div>
+    </div>
+    <div class="load-more-wrap" id="lm-keychains" style="display:none">
+      <button class="load-more-btn" onclick="loadMore('keychains')">LOAD MORE</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ STICKERS ══════════════════ -->
+  <div class="panel" id="panel-stickers">
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="q-stickers" placeholder="Search sticker name, team, or tournament…" />
+        </div>
+        <button class="search-btn" onclick="execSearch('stickers')">SEARCH</button>
+        <button class="browse-btn" onclick="browseAll('stickers')">BROWSE ALL</button>
+      </div>
+    </div>
+    <div id="status-stickers" class="statusbar"></div>
+    <div id="results-stickers" class="results">
+      <div class="state-msg"><span class="big">⌕</span>Search a sticker or click Browse All</div>
+    </div>
+    <div class="load-more-wrap" id="lm-stickers" style="display:none">
+      <button class="load-more-btn" onclick="loadMore('stickers')">LOAD MORE</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ MUSIC KITS ══════════════════ -->
+  <div class="panel" id="panel-music">
+    <div class="controls">
+      <div class="search-row">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input type="text" id="q-music" placeholder="Search music kit name or artist…" />
+        </div>
+        <button class="search-btn" onclick="execSearch('music')">SEARCH</button>
+        <button class="browse-btn" onclick="browseAll('music')">BROWSE ALL</button>
+      </div>
+    </div>
+    <div id="status-music" class="statusbar"></div>
+    <div id="results-music" class="results">
+      <div class="state-msg"><span class="big">⌕</span>Search a music kit or click Browse All</div>
+    </div>
+    <div class="load-more-wrap" id="lm-music" style="display:none">
+      <button class="load-more-btn" onclick="loadMore('music')">LOAD MORE</button>
+    </div>
+  </div>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
